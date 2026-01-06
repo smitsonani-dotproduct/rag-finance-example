@@ -22,8 +22,8 @@ def retrieve_context(vectordb, query: str):
     docs = vectordb.similarity_search(query, k=5)
 
     # Print the Results
-    for i, doc in enumerate(docs):
-        print(f"Document {i+1} (Page Content): {doc.page_content[:100]}...")
+    # for i, doc in enumerate(docs):
+    #     print(f"Document {i+1} (Page Content): {doc.page_content[:100]}...")
 
     context = "\n\n".join(
         f"[{d.metadata.get('source')}]\n{d.page_content}" for d in docs

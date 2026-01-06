@@ -27,12 +27,12 @@ def load_documents(docs_path="docs"):
             f"No .txt files found in {docs_path}. Please add your company documents."
         )
 
-    for i, doc in enumerate(documents):
-        print(f"\nDocument {i+1}:")
-        print(f"  Source: {doc.metadata['source']}")
-        print(f"  Content length: {len(doc.page_content)} characters")
-        print(f"  Content preview: {doc.page_content[:100]}...")
-        print(f"  metadata: {doc.metadata}")
+    # for i, doc in enumerate(documents):
+    #     print(f"\nDocument {i+1}:")
+    #     print(f"  Source: {doc.metadata['source']}")
+    #     print(f"  Content length: {len(doc.page_content)} characters")
+    #     print(f"  Content preview: {doc.page_content[:100]}...")
+    #     print(f"  metadata: {doc.metadata}")
 
     return documents
 
@@ -49,13 +49,13 @@ def split_documents(documents, chunk_size=1000, chunk_overlap=0):
 
     if chunks:
 
-        for i, chunk in enumerate(chunks[:5]):
-            print(f"\n--- Chunk {i+1} ---")
-            print(f"Source: {chunk.metadata['source']}")
-            print(f"Length: {len(chunk.page_content)} characters")
-            print(f"Content:")
-            print(chunk.page_content)
-            print("-" * 50)
+        # for i, chunk in enumerate(chunks[:5]):
+        #     print(f"\n--- Chunk {i+1} ---")
+        #     print(f"Source: {chunk.metadata['source']}")
+        #     print(f"Length: {len(chunk.page_content)} characters")
+        #     print(f"Content:")
+        #     print(chunk.page_content)
+        #     print("-" * 50)
 
         if len(chunks) > 5:
             print(f"\n... and {len(chunks) - 5} more chunks")
