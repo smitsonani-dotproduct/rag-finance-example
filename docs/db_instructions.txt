@@ -1,0 +1,63 @@
+Database Type: SQLite
+This database contains transactional data related to customers, loans, complaints, SLA rules, foreclosure rules, 
+and documents.
+
+Here are the list of tables & it's fields.
+
+1. Table: customers
+Purpose: Stores customer master information.
+Fields:
+- id (INTEGER, PRIMARY KEY)
+- name (TEXT): Customer full name
+- email (TEXT): Customer email address
+- created_at (TIMESTAMP)
+
+2. Table: loans
+Purpose: Stores loan details linked to customers.
+Fields:
+- id (INTEGER, PRIMARY KEY)
+- customer_id (INTEGER): Foreign key to customers.id
+- loan_type (TEXT): home_loan | personal_loan
+- interest_type (TEXT): fixed | floating
+- amount (REAL): Loan amount
+- start_date (DATE)
+- status (TEXT): active | closed
+
+3. Table: complaints
+Purpose: Stores customer complaints related to loans.
+Fields:
+- id (INTEGER, PRIMARY KEY)
+- customer_id (INTEGER): Foreign key to customers.id
+- loan_id (INTEGER): Foreign key to loans.id
+- complaint_type (TEXT): delay | interest_rate | foreclosure_charges | documentation | mis_selling
+- description (TEXT)
+- status (TEXT): open | in_progress | resolved
+- created_at (DATE)
+- resolved_at (DATE)
+
+4. Table: sla_rules
+Purpose: Defines SLA timelines for complaint resolution.
+Fields:
+- id (INTEGER, PRIMARY KEY)
+- product_type (TEXT): home_loan | personal_loan
+- complaint_type (TEXT)
+- max_resolution_days (INTEGER)
+
+5. Table: foreclosure_rules
+Purpose: Defines foreclosure eligibility and charges.
+Fields:
+- id (INTEGER, PRIMARY KEY)
+- loan_type (TEXT)
+- interest_type (TEXT)
+- foreclosure_allowed (BOOLEAN)
+- charges_percentage (REAL)
+- rule_reference (TEXT)
+
+6. Table: documents
+Purpose: Stores metadata of policy and regulatory documents.
+Fields:
+- id (INTEGER, PRIMARY KEY)
+- doc_name (TEXT)
+- doc_type (TEXT): rbi | insurance
+- source (TEXT)
+- effective_date (DATE)
