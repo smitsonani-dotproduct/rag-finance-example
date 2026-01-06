@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+env/
+
+# Environment variables
+.env
+.env.*
+
+# Chroma / Vector DB
+db/chroma_db/
+chroma/
+*.chromadb
+
+# SQLite database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# LangChain / RAG artifacts
+.cache/
+outputs/
+artifacts/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
