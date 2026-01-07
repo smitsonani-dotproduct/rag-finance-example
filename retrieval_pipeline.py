@@ -38,9 +38,10 @@ def generate_sql_query(context: str, user_query: str):
     SQL_PROMPT = PromptTemplate(
         input_variables=["context", "question"],
         template="""
-You are an expert at generating SQL for a SQLite database. You are good at read-only SQL generator for a 
+You are an expert SQL assistant. You are good at read-only SQL query generator for a 
 SQLite database. Your task is to generate a valid SQL query based on the user's question and the database 
-context provided below.
+context provided below. Use only the information from provided context below. Ensure your query is
+syntactically correct, semantically accurate, and limited to SELECT queries only.
 
 STRICT OUTPUT RULES:
 - Return ONLY raw SQL text
